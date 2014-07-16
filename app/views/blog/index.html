@@ -1,0 +1,17 @@
+<div class="content">
+	<div class="article-list">
+		<div class="article-wrapper" ng-repeat="article in articles">
+			<div class="article">
+				<div class="article-name">{{article.name}}</div>
+				<div class="article-info">
+					<div class="article-author">By {{article.author}}</div>
+					<div class="article-date">{{article.longDate}}</div>
+				</div>
+				<div class="article-short">
+					{{article.short}}...
+					<span class="read-more"><a ng-href="blog/{{article.year}}/{{article.month}}/{{article.date}}/{{article.urlName}}">READ MORE</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
