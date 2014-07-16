@@ -21,6 +21,37 @@ exports.create = function(params,callback){
 
 exports.showAll = function(callback){
 	Blog.find(function(err,blogs){
-		callback(blogs);
+		if( _.isNull(err) && blogs.length > 0 ){
+			var response = genRes.generateResponse(true,"found successfully");
+			callback(response,blogs);
+		}
+		else if( blogs.length == 0 ){
+			var response = genRes.generateResponse(true,"No user found");
+			callback(response,null);
+		}
+		else{
+			var response = genRes.generateResponse(false,"there occured some error : "+err);
+			callback(response,null);
+		}
 	});
+}
+
+exports.find = function(params,callback){
+	Blog
+	.find(params)
+	.exec(function(err,blogs){
+		//console.log(params);
+		if( _.isNull(err) && blogs.length > 0 ){
+			var response = genRes.generateResponse(true,"found successfully");
+			callback(response,blogs);
+		}
+		else if( blogs.length == 0 ){
+			var response = genRes.generateResponse(true,"No user found");
+			callback(response,null);
+		}
+		else{
+			var response = genRes.generateResponse(false,"there occured some error : "+err);
+			callback(response,null);
+		}
+	})
 }

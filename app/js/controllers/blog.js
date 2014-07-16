@@ -1,24 +1,45 @@
 'use strict';
 
 angular.module('tripsApp')
-.controller('BlogMainCtrl', function ($scope){	
-	$scope.tagline = 'It starts with a story!';
+.controller('BlogMainCtrl',['$scope', 'customHttp', function ($scope, customHttp){
+	loadBlogs();
+	function loadBlogs() {
+		customHttp.request('','/api/blogs/getall','POST',function (data) {
+			console.log(data.status);
+			if(data.status){
+				console.log(data);
+				$scope.articles = data.data;
+			}
+			else{
+				// $scope.error.push({
+				// 	type : 'fail',
+				// 	message: data.message
+				// })
+			}
+		})
+	}
+}])
 
-	$scope.articles = [
-	{'name':'this is heading', 'author':'Akash', 'longDate':'July 15, 2014', 'date':'15', 'month': '07', 'year':'2014' , 'urlName':'this-is-heading', 'short':"Web design in complicated and requires a lot of time and knowledge — and patience. It's no longer just embedded text background images and slices; it's"},
-	{'name':'this is heading', 'author':'Mukesh', 'longDate':'July 16, 2014', 'date':'16', 'month': '07', 'year':'2014' , 'urlName':'this-is-heading', 'short':"2011 has been an exciting year for Codrops and we want to thank you for supporting us! We've learned a lot and it's a privilege to us to be able to"}
-	];
-})
-
-.controller('BlogArticleCtrl',['$scope', '$stateParams',
- function ($scope, $stateParams){
+.controller('BlogArticleCtrl',['$scope', 'customHttp', '$stateParams', function ($scope, customHttp, $stateParams){
 	getTheArticle();
 
 	function getTheArticle () {
-		$scope.year = $stateParams.year;
-		$scope.month = $stateParams.month;
-		$scope.date = $stateParams.date;
-		$scope.articleUrlName = $stateParams.articleUrlName;
-		console.log($scope.articleUrlName);
+		var y = $stateParams.year;
+		var m = $stateParams.month;
+		var d = $stateParams.date;
+		var urlName = $stateParams.urlName;
+		console.log(urlName);
+		var impParams = 'urlName='+urlName+'&year='+y+'&month='+m+'&date='+d;
+		customHttp.request(impParams,'/api/blogs/display','POST',function (data) {
+			if(data.status){
+				$scope.article = data.data[0];
+			}
+			else{
+				// $scope.error.push({
+				// 	type : 'fail',
+				// 	message: data.message
+				// })
+			}
+		})
 	}
-}]);
+}])

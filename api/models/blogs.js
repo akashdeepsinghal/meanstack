@@ -10,7 +10,8 @@ var BlogSchema = new Schema({
 	month : { type : Number, required :true },
 	date : { type : Number, required :true },
 	content : { type : String, required : true },
-	publish : {type : Boolean, default : true}
+	publish : {type : Boolean, default : true},
+	urlName : { type : String, required : true }
 });
 
 module.exports = mongoose.model('Blog',BlogSchema);

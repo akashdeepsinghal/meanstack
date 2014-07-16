@@ -20,9 +20,9 @@ angular.module('tripsApp')
 	    	}
 	    })
 	    .success(function(data, status, headers, config){ 	
-	        callback(data);		      		        
+	        callback(data);
 	    })
-	    .error(function() {
+	    .error(function(data, status, headers, config) {
 	    	console.log('Error in connection!')
   		});
     }    

@@ -4,7 +4,7 @@ angular.module('tripsApp', ['ngRoute','ui.router'])
 
 .config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider',function ($routeProvider,$stateProvider,$urlRouterProvider,$locationProvider) {
 
-
+	$urlRouterProvider.otherwise('/');
 	$locationProvider.html5Mode(true);
 
 	$stateProvider
@@ -22,7 +22,7 @@ angular.module('tripsApp', ['ngRoute','ui.router'])
 		})
 
 		.state('blog-article', {
-			url: '/blog/:year/:month/:date/:articleUrlName',
+			url: '/blog/:year/:month/:date/:urlName',
 			// parent: 'home',
 			templateUrl: 'views/blog/article.html',
 			controller: 'BlogArticleCtrl'

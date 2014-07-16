@@ -1,34 +1,56 @@
-<div>
-	<h1>Create a new blog</h1>
-	<form name="newblog" ng-submit="addBlog()">
-		<div>
-			<div class="label">Title</div>
+<div class="admin">
+	<div>
+		<h1>Blogs</h1>
+		<div class="list">
+			<div class="item" ng-repeat="blog in blogs">
+				<div class="column index">
+					{{$index+1}}
+				</div>
+				<div class="column date">
+					{{blog.date}}/{{blog.month}}/{{blog.year}}
+				</div>
+				<div class="column title">
+					{{blog.title}}
+				</div>
+				<div class="column publish">
+					<input type="checkbox" checked="{{blog.publish}}" ng-click="changePublish(blog)"/>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Create a new blog</h1>
+		<form name="newblog" ng-submit="addBlog()">
 			<div>
-			<input type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required /> 
+				<div class="label">Title</div>
+				<div>
+				<input type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required /> 
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="label">Author</div>
 			<div>
-			<input type="text" name="author" ng-model="author" placeholder="eg. 'Tripsphere Team' or 'Mukesh Dewanda'" required /> 
+				<div class="label">Author</div>
+				<div>
+				<input type="text" name="author" ng-model="author" placeholder="eg. 'Tripsphere Team' or 'Mukesh Dewanda'" required /> 
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="label">Content</div>
 			<div>
-			<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				<div class="label">Content</div>
+				<div>
+				<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="label">Publish</div>
 			<div>
-			<input type="checkbox" name="publish" ng-model="publish"/>
+				<div class="label">Publish</div>
+				<div>
+				<input type="checkbox" name="publish" ng-model="publish"/>
+				</div>
 			</div>
-		</div>
-		<div>
-			<div class="value">
-			<input type="submit" value="Add Blog" id="add-new"/>
+			<div>
+				<div class="value">
+				<input type="submit" value="Add Blog" id="add-new"/>
+				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 </div>
