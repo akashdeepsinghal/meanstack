@@ -55,3 +55,18 @@ exports.find = function(params,callback){
 		}
 	})
 }
+
+exports.remove = function(id,callback){
+	console.log('id');
+	console.log(id);
+	Blog.findByIdAndRemove(id, function (err,blogs) {
+		if( _.isNull(err) ){
+			var response = genRes.generateResponse(true,"removed successfully");
+			callback(response);
+		}
+		else{
+			var response = genRes.generateResponse(false,"there occured some error : "+err);
+			callback(response);
+		}
+	})
+};

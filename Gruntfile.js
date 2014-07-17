@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
  
   grunt.initConfig({
@@ -23,7 +25,7 @@ module.exports = function(grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       }
-    },
+    }
   });
 
   grunt.loadNpmTasks ( 'grunt-contrib-less' );

@@ -1,8 +1,11 @@
-<div>
-	<div>
-		<h1>{{article.title}}</h1>
-	</div>
-	<div>
-		{{article.content}}
+<div class="body-wrapper">
+	<div class="article-wrapper">
+		<div class="article-header">
+			{{article.title}}
+			<span>By {{article.author}}</span>
+		</div>
+		<div class="article-content">
+			{{article.content}}
+		</div>
 	</div>
 </div>

@@ -48,42 +48,46 @@ a{
 		}
 	}
 }
+.blog-list-container{
+	.content{
+		background-color: #f2f5f8;
+	}
+}
 .content{
 	width: 100%;
 	height: 100%;
 	font-family: 'Open Sans';
-	background-color: #f2f5f8;
-	.article-list{
+	.blog-list{
 		padding: 3%;
-		.article-wrapper{
+		.blog-wrapper{
 			margin: 1%;
 			width: 31.3%;
 			height: 10em;
 			.BoxSizing;
 			background-color: #fff;
 			display: inline-block;
-			.article{
+			.blog{
 				/*text-align: center;*/
 				padding: 4%;
 				color: #333;
-				.article-name{
+				.blog-name{
 					text-transform: uppercase;
 					font-size: 1.4em;
 					/*font-weight: bold;*/
 					/*font-family: 'LeagueGothic';*/
 				}
-				.article-info{
+				.blog-info{
 					color: #888;
 					font-style: italic;
 					div{
 						display: inline-block;
 						font-size: 0.7em;
 					}
-					.article-author{
+					.blog-author{
 						margin: 0em 0.4em;
 					}
 				}
-				.article-short{
+				.blog-short{
 					font-family: 'Open Sans';
 					font-size: 0.9em;
 					.read-more{
@@ -102,14 +106,105 @@ a{
 }
 
 /*************/
+/*Article Page*/
+/*************/
+.article-wrapper{
+	padding:1% 7%;
+	background-color: #f9f9f9;
+	.article-header{
+		font-family: 'Raleway', Arial, sans-serif;
+		color: #404d5b;
+		font-size: 2.5em;
+		font-weight: bold;
+		text-align: center;
+		padding: 0.5em;
+		span{
+			display: block;
+			color: #8c949c;
+			font-size: 40%;
+			font-weight: lighter;
+		}
+	}
+	.article-content{
+		font-size: 1.5em;
+		font-family: 'Raleway', Arial, sans-serif;
+		/*font-family: 'Open Sans', Arial, sans-serif;*/
+		color: #34495e;
+	}
+}
+
+/*************/
 /*Admin CSS*/
 /*************/
 .admin{
+	background-color: #111;
+	color: #fff;
+	font-family: 'Raleway', Arial, sans-serif;
 	.list{
 		.item{
 			.column{
 				display: inline-block;
 			}
+		}
+	}
+	.heading{
+		text-align: center;
+	}
+	table{
+		padding: 1%;
+	}
+	.blog-table{
+		width: 100%;
+		.BoxSizing;
+		td{
+			font-size: 0.8em;
+		}
+		.table{
+			text-align: center;
+			border-right: 1px solid #888;
+			.BoxSizing;
+		}
+		.table:nth-last-child(1){
+			border-right: none;
+		}
+		.index{
+			width: 7%;
+		}
+		.date{
+			width: 10%;
+		}
+		.author{
+			width: 15%;
+		}
+		.title{
+			width: 15%;
+		}
+		.content{
+			width: 32%;
+		}
+		.publish{
+			width: 8%;
+		}
+		.delete{
+			width: 10%;
+		}
+		.edit{
+			width: 8%;
+		}
+	}
+	.blog-table:nth-child(1){
+		border-bottom: 1px solid #888;
+	}
+	#newblogform{
+		text-align: center;
+		.textbox{
+			width: 20em;
+			padding: 1em;
+		}
+		textarea{
+			width: 30em;
+			height: 6em;
+			padding: 1em;
 		}
 	}
 }

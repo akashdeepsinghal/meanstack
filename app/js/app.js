@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tripsApp', ['ngRoute','ui.router'])
+angular.module('tripsApp', ['ngRoute','ui.router', 'ngDialog'])
 
 .config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider',function ($routeProvider,$stateProvider,$urlRouterProvider,$locationProvider) {
 

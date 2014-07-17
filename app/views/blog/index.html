@@ -1,15 +1,17 @@
-<div class="content">
-	<div class="article-list">
-		<div class="article-wrapper" ng-repeat="article in articles">
-			<div class="article">
-				<div class="article-name">{{article.title}}</div>
-				<div class="article-info">
-					<div class="article-author">By {{article.author}}</div>
-					<div class="article-date">{{article.created_on}}</div>
-				</div>
-				<div class="article-short">
-					{{article.content | limitTo : 200}}...
-					<span class="read-more"><a ng-href="blog/{{article.year}}/{{article.month}}/{{article.date}}/{{article.urlName}}">READ MORE</a></span>
+<div class="blog-list-container">
+	<div class="content">
+		<div class="blog-list">
+			<div class="blog-wrapper" ng-repeat="blog in blogs">
+				<div class="blog">
+					<div class="blog-name">{{blog.title}}</div>
+					<div class="blog-info">
+						<div class="blog-author">By {{blog.author}}</div>
+						<div class="blog-date">{{blog.created_on}}</div>
+					</div>
+					<div class="blog-short">
+						{{blog.content | limitTo : 180}}...
+						<span class="read-more"><a ng-href="blog/{{blog.year}}/{{blog.month}}/{{blog.date}}/{{blog.urlName}}">READ MORE</a></span>
+					</div>
 				</div>
 			</div>
 		</div>

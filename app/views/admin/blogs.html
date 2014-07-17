@@ -1,37 +1,47 @@
 <div class="admin">
 	<div>
-		<h1>Blogs</h1>
-		<div class="list">
-			<div class="item" ng-repeat="blog in blogs">
-				<div class="column index">
-					{{$index+1}}
-				</div>
-				<div class="column date">
-					{{blog.date}}/{{blog.month}}/{{blog.year}}
-				</div>
-				<div class="column title">
-					{{blog.title}}
-				</div>
-				<div class="column publish">
-					<input type="checkbox" checked="{{blog.publish}}" ng-click="changePublish(blog)"/>
-					
-				</div>
-			</div>
-		</div>
+		<h1 class="heading">Blogs</h1>
+
+		<table>
+			<tbody>
+				<tr class="blog-table">
+					<th class="table index">Index</th>
+					<th class="table date">Date</th>
+					<th class="table author">Author</th>
+					<th class="table title">Article Name</th>
+					<th class="table content">Content</th>
+					<th class="table publish">Publish?</th>
+					<th class="table delete">Delete</th>
+					<th class="table edit">Edit</th>
+				</tr>
+				<tr class="blog-table" ng-repeat="blog in blogs">
+					<td class="table index">{{$index+1}}</td>
+					<td class="table date">{{blog.date}}/{{blog.month}}/{{blog.year}}</td>
+					<td class="table author">{{blog.author}}</td>
+					<td class="table title">{{blog.title}}</td>
+					<td class="table content">{{blog.content | limitTo : 60}}...</td>
+					<td class="table publish"><input type="checkbox" ng-model="blog.publish" ng-change="changePublish(blog)"/></td>
+					<td class="table delete"><button ng-click="deleteBlog($index)">Delete</button>
+					<div class="delete-confirm" ng-model="blog" ng-show="deleteABlog($index)">sure? <button ng-click="deleteYes(blog)">Y</button> <button ng-click="deleteNo(blog)">N</button></div>
+					</td>
+					<td class="table edit"><button ng-click="">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<div>
-		<h1>Create a new blog</h1>
-		<form name="newblog" ng-submit="addBlog()">
+		<h1 class="heading">Create a new blog</h1>
+		<form name="newblog" id="newblogform" ng-submit="addBlog()">
 			<div>
 				<div class="label">Title</div>
 				<div>
-				<input type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required /> 
+				<input class="textbox" type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required />
 				</div>
 			</div>
 			<div>
 				<div class="label">Author</div>
 				<div>
-				<input type="text" name="author" ng-model="author" placeholder="eg. 'Tripsphere Team' or 'Mukesh Dewanda'" required /> 
+				<input class="textbox" type="text" name="author" ng-model="author" placeholder="eg. 'Tripsphere Team' or 'Mukesh Dewanda'" required /> 
 				</div>
 			</div>
 			<div>

@@ -8,7 +8,7 @@ angular.module('tripsApp')
 			console.log(data.status);
 			if(data.status){
 				console.log(data);
-				$scope.articles = data.data;
+				$scope.blogs = data.data;
 			}
 			else{
 				// $scope.error.push({

@@ -50,14 +50,8 @@ exports.getBlogs = function(req,res){
 	verify.isReqAuthentic(req,function(response,session){
 		if(response){
 			Blog.showAll(function(str,data){
-				for (var i = 0; i < 10; i++) {
-					console.log('yo');
-				};
-				console.log(str);
-				console.log(data);
 				var resp = JSON.parse(str);
 				resp.data = data;
-				console.log(resp);
 				res.send(JSON.stringify(resp));
 			});
 		}
@@ -81,6 +75,25 @@ exports.displayBlog = function(req,res){
 				response.data = data;
 				console.log(response);
 				res.send(JSON.stringify(response));
+			});
+		}
+		else{
+			var err_resp = genres.generateResponse(false,invalid_auth_error);
+			res.send(err_resp);
+		}
+	});
+}
+
+exports.removeBlog = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+			var params = req.body;
+			var blog_id = params.blog_id;
+			// var blogs = [];
+			// blogs.push({"_id" : blog_id});
+			console.log(blog_id);
+			Blog.remove(blog_id,function(msg){
+				res.send(msg);
 			});
 		}
 		else{

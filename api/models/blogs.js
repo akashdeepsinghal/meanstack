@@ -10,7 +10,7 @@ var BlogSchema = new Schema({
 	month : { type : Number, required :true },
 	date : { type : Number, required :true },
 	content : { type : String, required : true },
-	publish : {type : Boolean, default : true},
+	publish : { type : Boolean, default : false },
 	urlName : { type : String, required : true }
 });
 
