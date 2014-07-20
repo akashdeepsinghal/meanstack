@@ -5,12 +5,12 @@
 				<div class="blog">
 					<div class="blog-name">{{blog.title}}</div>
 					<div class="blog-info">
-						<div class="blog-author">By {{blog.author}}</div>
+						<div class="blog-author">By <span class="article-author">{{blog.author}}</span></div>
 						<div class="blog-date">{{blog.created_on}}</div>
 					</div>
 					<div class="blog-short">
 						{{blog.content | limitTo : 180}}...
-						<span class="read-more"><a ng-href="blog/{{blog.year}}/{{blog.month}}/{{blog.date}}/{{blog.urlName}}">READ MORE</a></span>
+						<span class="read-more"><a ng-href="/blog/{{blog.year}}/{{blog.month}}/{{blog.date}}/{{blog.urlName}}">READ MORE</a></span>
 					</div>
 				</div>
 			</div>

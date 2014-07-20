@@ -20,6 +20,9 @@ ul li {
 a {
   text-decoration: none;
 }
+button {
+  cursor: pointer;
+}
 .BoxSizing {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -43,6 +46,15 @@ a {
   color: #ddd;
   font-family: 'Open Sans';
 }
+.pointer {
+  cursor: pointer;
+}
+.article-author {
+  font-style: normal;
+  color: #2e90c4;
+  cursor: pointer;
+  display: inline;
+}
 .blog-list-container .content {
   background-color: #f2f5f8;
 }
@@ -63,7 +75,8 @@ a {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   background-color: #fff;
-  display: inline-block;
+  /*display: inline-block;*/
+  display: inline-table;
 }
 .content .blog-list .blog-wrapper .blog {
   /*text-align: center;*/

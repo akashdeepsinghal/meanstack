@@ -1,0 +1,38 @@
+<div class="admin">
+	<div>
+		<h1 class="heading">Edit the blog</h1>
+		<form name="newblog" id="newblogform">
+			<div>
+				<div class="label">Title</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="blog.title" placeholder="eg. 'Trip to Sandhan Valley'" required />
+				</div>
+			</div>
+			<div>
+				<div class="label">Author</div>
+				<div>
+				<input class="textbox" type="text" name="author" ng-model="blog.author" placeholder="eg. 'Tripsphere Team' or 'Mukesh Dewanda'" required /> 
+				</div>
+			</div>
+			<div>
+				<div class="label">Content</div>
+				<div>
+				<textarea name="content" ng-model="blog.content" placeholder="Put your story here" required></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="label">Publish</div>
+				<div>
+				<input type="checkbox" name="publish" ng-model="blog.publish"/>
+				</div>
+			</div>
+			<div>
+				<div class="value">
+				<!-- <input type="submit" value="Save Changes" id="add-new"/> -->
+				<button ng-click="updateBlog()">Save Changes</button>
+				<button ng-click="discardChanges()">Discard</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

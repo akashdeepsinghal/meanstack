@@ -19,34 +19,15 @@ exports.create = function(params,callback){
 	})
 }
 
-exports.showAll = function(callback){
-	Blog.find(function(err,blogs){
+exports.get = function(params,callback){
+	console.log(params);
+	Blog.find(params).exec(function (err,blogs) {
 		if( _.isNull(err) && blogs.length > 0 ){
 			var response = genRes.generateResponse(true,"found successfully");
 			callback(response,blogs);
 		}
 		else if( blogs.length == 0 ){
-			var response = genRes.generateResponse(true,"No user found");
-			callback(response,null);
-		}
-		else{
-			var response = genRes.generateResponse(false,"there occured some error : "+err);
-			callback(response,null);
-		}
-	});
-}
-
-exports.find = function(params,callback){
-	Blog
-	.find(params)
-	.exec(function(err,blogs){
-		//console.log(params);
-		if( _.isNull(err) && blogs.length > 0 ){
-			var response = genRes.generateResponse(true,"found successfully");
-			callback(response,blogs);
-		}
-		else if( blogs.length == 0 ){
-			var response = genRes.generateResponse(true,"No user found");
+			var response = genRes.generateResponse(true,"No blog found");
 			callback(response,null);
 		}
 		else{
@@ -54,12 +35,25 @@ exports.find = function(params,callback){
 			callback(response,null);
 		}
 	})
-}
+};
 
 exports.remove = function(id,callback){
 	console.log('id');
 	console.log(id);
 	Blog.findByIdAndRemove(id, function (err,blogs) {
+		if( _.isNull(err) ){
+			var response = genRes.generateResponse(true,"removed successfully");
+			callback(response);
+		}
+		else{
+			var response = genRes.generateResponse(false,"there occured some error : "+err);
+			callback(response);
+		}
+	})
+};
+
+exports.update = function(id,params,callback){
+	Blog.findByIdAndUpdate(id,params,function(err,user){
 		if( _.isNull(err) ){
 			var response = genRes.generateResponse(true,"removed successfully");
 			callback(response);

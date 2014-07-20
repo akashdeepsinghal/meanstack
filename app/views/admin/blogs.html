@@ -20,11 +20,11 @@
 					<td class="table author">{{blog.author}}</td>
 					<td class="table title">{{blog.title}}</td>
 					<td class="table content">{{blog.content | limitTo : 60}}...</td>
-					<td class="table publish"><input type="checkbox" ng-model="blog.publish" ng-change="changePublish(blog)"/></td>
+					<td class="table publish"><input class="pointer" type="checkbox" ng-model="blog.publish" ng-change="changePublish(blog)"/></td>
 					<td class="table delete"><button ng-click="deleteBlog($index)">Delete</button>
 					<div class="delete-confirm" ng-model="blog" ng-show="deleteABlog($index)">sure? <button ng-click="deleteYes(blog)">Y</button> <button ng-click="deleteNo(blog)">N</button></div>
 					</td>
-					<td class="table edit"><button ng-click="">Edit</button></td>
+					<td class="table edit"><a ng-href="/admintrips/blogs/edit/{{blog._id}}">Edit</a></td>
 				</tr>
 			</tbody>
 		</table>

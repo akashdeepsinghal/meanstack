@@ -22,6 +22,9 @@ ul{
 a{
 	text-decoration: none;
 }
+button{
+	cursor: pointer;
+}
 
 .BoxSizing{
 	box-sizing : border-box;
@@ -48,6 +51,17 @@ a{
 		}
 	}
 }
+
+.pointer{
+	cursor: pointer;
+}
+.article-author{
+	font-style: normal;
+	color: #2e90c4;
+	cursor: pointer;
+	display: inline;
+}
+
 .blog-list-container{
 	.content{
 		background-color: #f2f5f8;
@@ -65,7 +79,8 @@ a{
 			height: 10em;
 			.BoxSizing;
 			background-color: #fff;
-			display: inline-block;
+			/*display: inline-block;*/
+			display: inline-table;
 			.blog{
 				/*text-align: center;*/
 				padding: 4%;

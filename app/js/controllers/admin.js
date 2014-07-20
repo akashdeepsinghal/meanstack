@@ -107,3 +107,49 @@ angular.module('tripsApp')
 		$scope.activeDeleteIndex=-1;
 	}
 }])
+.controller('AdminBlogEditCtrl',['$scope', '$location', 'customHttp', '$stateParams', 'ngDialog', function ($scope, $location, customHttp, $stateParams, ngDialog){
+	blogEdit();
+	function blogEdit () {
+		var blog_id = $stateParams.id;
+		console.log(blog_id);
+		var impParams = 'blog_id='+blog_id;
+		console.log(impParams);
+		customHttp.request(impParams,'/api/blogs/getbyid','POST',function (data) {
+			console.log(data.status);
+			if(data.status){
+				console.log('done');
+				$scope.blog = data.data[0];
+				console.log($scope.blog);
+			}
+			else{
+				console.log("Some error");
+				$scope.error.push({
+					type : 'fail',
+					message: data.message
+				})
+			}
+		})
+	}
+
+	$scope.updateBlog = function () {
+		var impParams = 'blog='+JSON.stringify($scope.blog);
+		console.log(impParams);
+		customHttp.request(impParams,'/api/blogs/update','POST',function (data) {
+			if(data.status){
+				console.log(data);
+				$location.path("/admintrips/blogs");
+			}
+			else{
+				$scope.error.push({
+					type : 'fail',
+					message: data.message
+				})
+			}
+		})
+	}
+
+	$scope.discardChanges = function () {
+		$location.path("/admintrips/blogs");
+	}
+
+}])

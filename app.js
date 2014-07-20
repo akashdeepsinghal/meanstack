@@ -33,9 +33,11 @@ app.get('/api', api.index);
 
 //routes for blog
 app.post('/api/blogs/create',api.addBlog);
-app.post('/api/blogs/getall',api.getBlogs);
+app.post('/api/blogs/getall',api.getAllBlogs);
 app.post('/api/blogs/display',api.displayBlog);
 app.post('/api/blogs/remove',api.removeBlog);
+app.post('/api/blogs/getbyid',api.getBlogByid);
+app.post('/api/blogs/update',api.updateBlog);
 // app.get('/api/blogs/getbyYMDN',api.getBlogsByYMDN); //YearMonthDateName (YMDN)
 // app.get('/api/blogs/getbyid',api.getBlogByid);
 // app.post('/api/blogs/edit',api.editBlog);

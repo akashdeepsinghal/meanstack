@@ -11,39 +11,46 @@ angular.module('tripsApp', ['ngRoute','ui.router', 'ngDialog'])
 
 		.state('home', {
 			url: '/',
-			templateUrl: 'views/home/index.html',
+			templateUrl: '/views/home/index.html',
 			controller: 'MainCtrl'
 		})
 
 		.state('blog', {
 			url: '/blog',
-			templateUrl: 'views/blog/index.html',
+			templateUrl: '/views/blog/index.html',
 			controller: 'BlogMainCtrl'
 		})
 
 		.state('blog-article', {
 			url: '/blog/:year/:month/:date/:urlName',
 			// parent: 'home',
-			templateUrl: 'views/blog/article.html',
+			templateUrl: '/views/blog/article.html',
 			controller: 'BlogArticleCtrl'
 		})
 
 		.state('contact', {
 			url: '/contact',
-			templateUrl: 'views/contact/index.html',
+			templateUrl: '/views/contact/index.html',
 			controller: 'ContactCtrl'
 		})
 
 		.state('admin', {
 			url: '/admintrips',
-			templateUrl: 'views/admin/index.html',
+			templateUrl: '/views/admin/index.html',
 			controller: 'AdminCtrl'
 		})
 
 		.state('admin-blogs', {
 			// parent: 'admin',
 			url: '/admintrips/blogs',
-			templateUrl: 'views/admin/blogs.html',
+			templateUrl: '/views/admin/blogs.html',
 			controller: 'AdminBlogCtrl'
+		})
+
+		.state('admin-blog-edit', {
+			// parent: 'admin',
+			url: '/admintrips/blogs/edit/:id',
+			templateUrl: '/views/admin/blog-edit.html',
+			controller: 'AdminBlogEditCtrl'
 		})
 }]);
