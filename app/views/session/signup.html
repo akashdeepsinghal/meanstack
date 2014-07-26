@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <div>
+      <div ng-class="{error : error != ''}">{{error}}</div>
+      <form name="signup" id="signup" ng-submit="Signup()">
+        <input type="text" name="name" ng-model="name" placeholder="Full Name" class="inputbox" required />
+        <input type="email" name="email" ng-model="email" placeholder="Email Address" class="inputbox" required /> 
+        <input type="password" name="password" ng-model="password" placeholder="Password" class="inputbox" ng-minlength="6" required /> 
+        <input type="submit" value="Create Account"/>
+      </form>
+    </div>
+  </div>
+</div>

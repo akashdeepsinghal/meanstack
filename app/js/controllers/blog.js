@@ -28,7 +28,6 @@ angular.module('tripsApp')
 		var m = $stateParams.month;
 		var d = $stateParams.date;
 		var urlName = $stateParams.urlName;
-		console.log(urlName);
 		var impParams = 'urlName='+urlName+'&year='+y+'&month='+m+'&date='+d;
 		customHttp.request(impParams,'/api/blogs/display','POST',function (data) {
 			if(data.status){

@@ -5,12 +5,14 @@
 	<meta name="author" content="Akash Deep Singhal">
 	<meta name="description" content="Akash Deep Singhal">
 	<base href="/">
-	<title>Tripsphere</title>
+	<!-- <title>Tripsphere &middot; Cover the earth before it covers you</title> -->
+	<title><%= title %></title>
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.css">
 </head>
 <body ng-app="tripsApp">
+<input type="hidden" id="csrf_token" value="<%= csrf_token %>">
 	<!-- HEADER -->
 	<nav class="header">
 		<div class="nav-wrapper">
@@ -18,6 +20,9 @@
 				<div class="nav-link"><a href="/">Home</a></div>
 				<div class="nav-link"><a href="/blog">Blog</a></div>
 				<div class="nav-link"><a href="/contact">Contact</a></div>
+				<div class="nav-link"><a href="/login">Login</a></div>
+				<div class="nav-link"><a href="/signup">Sign up</a></div>
+				<div class="nav-link"><a href="/admintrips/blogs">Admin Panel</a></div>
 			</div>
 		</div>
 	</nav>
@@ -27,6 +32,7 @@
 
 	<!-- JS -->
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="bower_components/ngDialog/js/ngDialog.min.js"></script>
@@ -37,6 +43,7 @@
 	<script src="js/controllers/blog.js"></script>
 	<script src="js/controllers/contact.js"></script>
 	<script src="js/controllers/main.js"></script>
+	<script src="js/controllers/session.js"></script>
 	<!-- Services -->
 	<script src="js/services/customHttp.js"></script>
 </body>

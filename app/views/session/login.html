@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <div>
+      <!-- <div ng-class="{error : error != ''}">{{error}}</div> -->
+      <div ng-repeat="e in error" class="error {{e.type}}" >
+        {{e.message}}
+        <span class="fa fa-times cross" ng-click="hideAlert();"></span>
+      </div>
+      <form name="login" id="login" ng-submit="Login()">
+        <input type="email" name="email" ng-model="email" placeholder="Email Address" class="inputbox" required /> 
+        <input type="password" name="password" ng-model="password" placeholder="Password" class="inputbox" ng-minlength="6" required /> 
+        <input type="submit" value="Log In"/>
+      </form>
+    </div>
+  </div>
+</div>

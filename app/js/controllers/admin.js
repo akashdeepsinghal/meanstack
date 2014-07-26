@@ -16,10 +16,10 @@ angular.module('tripsApp')
 				$scope.blogs = data.data;
 			}
 			else{
-				// $scope.error.push({
-				// 	type : 'fail',
-				// 	message: data.message
-				// })
+				$scope.error.push({
+					type : 'fail',
+					message: data.message
+				})
 			}
 		})
 	}

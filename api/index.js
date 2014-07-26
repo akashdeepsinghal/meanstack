@@ -1,6 +1,7 @@
 'use strict';
 
 var verify = require('./verify.js');
+var genres = require('./controllers/genres.js')
 var _ = require('underscore');
 var fs = require('fs');
 var path = require('path');
@@ -70,43 +71,25 @@ exports.updateBlog = function(req,res){
 }
 
 exports.getAllBlogs = function(req,res){
-	verify.isReqAuthentic(req,function(response,session){
-		if(response){
-			var query = '';
-			Blog.get(query,function(msg,data){
-				var obj = JSON.parse(msg);
-				obj.data = data;
-				console.log(obj);
-				res.send(JSON.stringify(obj));
-			});
-		}
-		else{
-			var err_resp = genres.generateResponse(false,invalid_auth_error);
-			res.send(err_resp);
-		}
+	console.log("Calling from getAllBlogs");
+	Blog.get('',function(msg,data){
+		var obj = JSON.parse(msg);
+		obj.data = data;
+		res.send(JSON.stringify(obj));
 	});
 }
 
 exports.getBlogByid = function(req,res){
-	verify.isReqAuthentic(req,function(response,session){
-		if(response){
-			console.log('Till Here');
-			var blog_id = req.body.blog_id;
-			console.log(blog_id);
-			var query = {
-				_id :  blog_id
-			};
-			Blog.get(query,function(msg,data){
-				var obj = JSON.parse(msg);
-				obj.data = data;
-				// console.log(obj);
-				res.send(JSON.stringify(obj));
-			});
-		}
-		else{
-			var err_resp = genres.generateResponse(false,invalid_auth_error);
-			res.send(err_resp);
-		}
+	console.log('Till Here');
+	var blog_id = req.body.blog_id;
+	console.log(blog_id);
+	var query = {
+		_id :  blog_id
+	};
+	Blog.get(query,function(msg,data){
+		var obj = JSON.parse(msg);
+		obj.data = data;
+		res.send(JSON.stringify(obj));
 	});
 }
 
@@ -150,3 +133,110 @@ exports.removeBlog = function(req,res){
 		}
 	});
 }
+
+/*
+Middleware functions for api/users/*
+*/
+
+exports.addUser = function(req,res){
+	var user = req.body;
+	console.log(user);
+	User.create(user,function(str){
+		res.send(str);
+	});
+}
+
+exports.getUserById = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+
+		}
+		else{
+
+		}
+	});
+}
+
+exports.loginUser = function(req,res){
+	var params = req.body;
+	var obj = {
+		'email' : params.email,
+		'password' : params.password
+	};
+	User.login(obj,function(str,session){
+		var response = JSON.parse(str);
+		console.log(str);
+		console.log(session);
+		console.log(req.session);
+		if(response.status){
+			console.log('Calling from indexJS ~188, session id is ',session._id);
+			req.session.session_id = session._id;
+			var obj = {
+				'status' : true,
+				'message' : "login successful",
+				'data' : session
+			}
+			res.send(JSON.stringify(obj));
+			console.log("NO error");
+		}
+		else{
+			res.send(str);
+			console.log("error");
+		}
+	});
+}
+
+exports.logoutUser = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+
+		}
+		else{
+
+		}
+	});
+}
+
+exports.removeUser = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+
+		}
+		else{
+
+		}
+	});
+}
+
+exports.updateUserName = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+
+		}
+		else{
+
+		}
+	});
+}
+
+exports.updateUserPassword = function(req,res){
+	verify.isReqAuthentic(req,function(response,session){
+		if(response){
+
+		}
+		else{
+
+		}
+	});
+}
+
+// exports.extraFunction = function(req,res){
+// 	verify.isReqAuthentic(req,function(response,session){
+// 		if(response){
+
+// 		}
+// 		else{
+
+// 		}
+// 	});
+// }

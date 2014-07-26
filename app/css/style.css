@@ -29,6 +29,35 @@ button {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
 }
+/*************/
+/*General*/
+/*************/
+.error {
+  font-size: 0.85em;
+  padding: 0.4em;
+  display: none;
+}
+.error span.cross {
+  float: right;
+  display: inline-block;
+  padding: 0.15em 0.3em;
+  cursor: pointer;
+}
+.error.success {
+  background: #DFF0D8;
+  border: thin solid #D6E9C6;
+  color: #3C763D;
+  display: block!important;
+}
+.error.fail {
+  color: #A94442;
+  background: #F2DEDE;
+  border: thin solid #EBCCD1;
+  display: block!important;
+}
+/*************/
+/*Header*/
+/*************/
 .header {
   width: 100%;
 }
