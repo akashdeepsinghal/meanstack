@@ -88,8 +88,9 @@ button {
   background-color: #f2f5f8;
 }
 .content {
+  position: absolute;
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   font-family: 'Open Sans';
 }
 .content .blog-list {
@@ -148,6 +149,8 @@ button {
 .article-wrapper {
   padding: 1% 7%;
   background-color: #f9f9f9;
+  position: absolute;
+  width: 100%;
 }
 .article-wrapper .article-header {
   font-family: 'Raleway', Arial, sans-serif;
@@ -176,6 +179,8 @@ button {
   background-color: #111;
   color: #fff;
   font-family: 'Raleway', Arial, sans-serif;
+  position: absolute;
+  width: 100%;
 }
 .admin .list .item .column {
   display: inline-block;
@@ -245,4 +250,17 @@ button {
   width: 30em;
   height: 6em;
   padding: 1em;
+}
+.admin .create-plan .checkbox-list input {
+  display: inline-block;
+}
+.admin .create-plan .checkbox-list div {
+  display: inline-block;
+}
+.admin .create-plan .checkbox-list .checkbox-label {
+  text-transform: capitalize;
+  width: 20%;
+}
+.admin .field {
+  margin-bottom: 1em;
 }

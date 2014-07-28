@@ -100,8 +100,9 @@ button{
 	}
 }
 .content{
+	position: absolute;
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	font-family: 'Open Sans';
 	.blog-list{
 		padding: 3%;
@@ -158,6 +159,8 @@ button{
 .article-wrapper{
 	padding:1% 7%;
 	background-color: #f9f9f9;
+	position: absolute;
+	width: 100%;
 	.article-header{
 		font-family: 'Raleway', Arial, sans-serif;
 		color: #404d5b;
@@ -187,6 +190,8 @@ button{
 	background-color: #111;
 	color: #fff;
 	font-family: 'Raleway', Arial, sans-serif;
+	position: absolute;
+	width: 100%;
 	.list{
 		.item{
 			.column{
@@ -252,6 +257,29 @@ button{
 			width: 30em;
 			height: 6em;
 			padding: 1em;
+		}
+	}
+	.create-plan{
+		.checkbox-list{
+			input{
+				display: inline-block;
+			}
+			input.blur{
+
+			}
+			div{
+				display: inline-block;
+			}
+			.checkbox-label{
+				text-transform: capitalize;
+				width: 20%;				
+			}
+		}
+	}
+	.field{
+		margin-bottom: 1em;
+		.label{
+			
 		}
 	}
 }

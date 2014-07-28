@@ -153,3 +153,40 @@ angular.module('tripsApp')
 	}
 
 }])
+
+
+
+.controller('AdminPlanCtrl',['$scope', 'customHttp', 'ngDialog', function ($scope, customHttp, ngDialog){
+    $scope.addons = [
+        {
+            name:'camping'
+        },
+        {
+            name:'rappelling'
+        },
+        {
+            name:'waterfall rappelling'
+        },
+        {
+            name:'rock climbing'
+        },
+        {
+            name:'river crossing'
+        },
+        {
+            name:'beach side camping'
+        },
+        {
+            name:'night trekking'
+        },
+        {
+            name:'fishing'
+        },
+        {
+            name:'kayaking'
+        },
+        {
+            name:'private music performance'
+        }
+    ];
+}])

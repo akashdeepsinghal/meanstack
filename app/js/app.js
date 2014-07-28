@@ -55,6 +55,19 @@ angular.module('tripsApp', ['ngRoute','ui.router', 'ngDialog'])
 			templateUrl: '/views/admin/blog-edit.html',
 			controller: 'AdminBlogEditCtrl'
 		})
+		.state('admin-plans', {
+			// parent: 'admin',
+			url: '/admintrips/plans',
+			templateUrl: '/views/admin/plans.html',
+			controller: 'AdminPlanCtrl'
+		})
+		.state('admin-plan-edit', {
+			// parent: 'admin',
+			url: '/admintrips/plans/edit/:id',
+			templateUrl: '/views/admin/plan-edit.html',
+			controller: 'AdminPlanEditCtrl'
+		})
+		
 
 //sessions
 		.state('signup', {

@@ -1,0 +1,144 @@
+<div class="admin">
+	<div ng-if="1==3">
+		<h1 class="heading">Plans</h1>
+
+		<table>
+			<tbody>
+				<tr class="blog-table">
+					<th class="table index">Index</th>
+					<th class="table date">Date</th>
+					<th class="table author">Author</th>
+					<th class="table title">Article Name</th>
+					<th class="table content">Content</th>
+					<th class="table publish">Publish?</th>
+					<th class="table delete">Delete</th>
+					<th class="table edit">Edit</th>
+				</tr>
+				<tr class="blog-table" ng-repeat="blog in blogs">
+					<td class="table index">{{$index+1}}</td>
+					<td class="table date">{{blog.date}}/{{blog.month}}/{{blog.year}}</td>
+					<td class="table author">{{blog.author}}</td>
+					<td class="table title">{{blog.title}}</td>
+					<td class="table content">{{blog.content | limitTo : 60}}...</td>
+					<td class="table publish"><input class="pointer" type="checkbox" ng-model="blog.publish" ng-change="changePublish(blog)"/></td>
+					<td class="table delete"><button ng-click="deleteBlog($index)">Delete</button>
+					<div class="delete-confirm" ng-model="blog" ng-show="deleteABlog($index)">sure? <button ng-click="deleteYes(blog)">Y</button> <button ng-click="deleteNo(blog)">N</button></div>
+					</td>
+					<td class="table edit"><a ng-href="/admintrips/blogs/edit/{{blog._id}}">Edit</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="create-plan form">
+		<h1 class="heading">Create a new plan</h1>
+		<form name="newblog" id="newblogform" ng-submit="addBlog()">
+			<div class="field">
+				<div class="label">Name</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="name" placeholder="eg. 'Trip to Sandhan Valley'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Location</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="location" placeholder="eg. 'Sandhan Valley'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Upper Cap</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="uppercap" placeholder="eg. '14'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Duration (Days)</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="duration" placeholder="eg. '3'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Basic Cost (INR)</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="basic_cost" placeholder="eg. '1400'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Category</div>
+				<div>
+				<select  name="category" class="textbox dropdown" ng-model="category" ng-options="category._id as category.name for category in categories">
+				</select>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Dificuly</div>
+				<div>
+				<select  name="difficulty" class="textbox dropdown" ng-model="difficulty" ng-options="difficulty._id as difficulty.name for difficulty in difficulties"></select>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Short Description</div>
+				<div>
+				<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Long Description</div>
+				<div>
+				<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				</div>
+			</div>
+<!-- Best Season -->
+<!-- Impossible in this season -->
+<!-- Facilities -->
+			<div class="field">
+				<div class="label">Distance travelled from Mumbai to Mumbai (Kms)</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '384'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Height Achieved (if Trekking) (Mts)</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '831'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Distance covered on water (Mts)</div>
+				<div>
+				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '1376'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Things to carry</div>
+				<div>
+				<textarea name="content" ng-model="content" placeholder="eg. Ek JD ka Khamba, Ek hot blonde with shaved pussy" required></textarea>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Instructions</div>
+				<div>
+				<textarea name="content" ng-model="content" placeholder="eg. Bring water bottle with you" required></textarea>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Possible Pains</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required />
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Add Ons</div>
+				<div class="checkbox-list" ng-repeat="addon in addons">
+					<div class="checkbox-label">{{addon.name}}</div>
+					<input class="" type="checkbox" name="title" ng-model="addon.tick"/>
+					<input class="" type="number" name="title" ng-disabled="!addon.tick" ng-model="title" placeholder="eg. '400'"/>
+				</div>
+			</div>
+			<div>
+				<div class="value">
+				<input type="submit" value="Add Plan" id="add-new"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
