@@ -239,14 +239,14 @@ button {
 .admin .blog-table:nth-child(1) {
   border-bottom: 1px solid #888;
 }
-.admin #newblogform {
+.admin .admin-form {
   text-align: center;
 }
-.admin #newblogform .textbox {
+.admin .admin-form .textbox {
   width: 20em;
   padding: 1em;
 }
-.admin #newblogform textarea {
+.admin .admin-form textarea {
   width: 30em;
   height: 6em;
   padding: 1em;

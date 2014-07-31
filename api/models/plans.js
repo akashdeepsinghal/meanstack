@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var PlanSchema = new Schema({
+	author : { type : String},
 	name : { type : String},
 	location : { type : String},
 	category : [{type : String}],
@@ -18,6 +19,7 @@ var PlanSchema = new Schema({
 		best : [{type : String}],
 		worst : [{type : String}]
 	},
+	facilities : [{type : String}],
 	distance : {
 		land : { type : Number},
 		height : { type : Number},

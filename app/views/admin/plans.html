@@ -31,107 +31,131 @@
 	</div>
 	<div class="create-plan form">
 		<h1 class="heading">Create a new plan</h1>
-		<form name="newblog" id="newblogform" ng-submit="addBlog()">
+		<form class="admin-form" name="newplan" id="newplanform" ng-submit="addPlan()">
+			<div class="field">
+				<div class="label">Author</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="np.author" placeholder="eg. 'Bocho Devando'" />
+				</div>
+			</div>
 			<div class="field">
 				<div class="label">Name</div>
 				<div>
-				<input class="textbox" type="text" name="title" ng-model="name" placeholder="eg. 'Trip to Sandhan Valley'" required />
+				<input class="textbox" type="text" name="title" ng-model="np.name" placeholder="eg. 'Trip to Sandhan Valley'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Location</div>
 				<div>
-				<input class="textbox" type="text" name="title" ng-model="location" placeholder="eg. 'Sandhan Valley'" required />
+				<input class="textbox" type="text" name="title" ng-model="np.location" placeholder="eg. 'Sandhan Valley'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Upper Cap</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="uppercap" placeholder="eg. '14'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.uppercap" placeholder="eg. '14'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Duration (Days)</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="duration" placeholder="eg. '3'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.duration" placeholder="eg. '3'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Basic Cost (INR)</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="basic_cost" placeholder="eg. '1400'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.basic_cost" placeholder="eg. '1400'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Category</div>
 				<div>
-				<select  name="category" class="textbox dropdown" ng-model="category" ng-options="category._id as category.name for category in categories">
-				</select>
+<!-- 				<select  name="category" class="textbox dropdown" ng-model="np.category" ng-options="category._id as category.name for category in categories">
+				</select> -->
+				<input class="textbox" type="text" name="category" ng-model="np.category" placeholder="eg. 'Luxury Trips'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Dificuly</div>
 				<div>
-				<select  name="difficulty" class="textbox dropdown" ng-model="difficulty" ng-options="difficulty._id as difficulty.name for difficulty in difficulties"></select>
+				<select  name="difficulty" class="textbox dropdown" ng-model="np.difficulty" ng-options="difficulty.name as difficulty.name for difficulty in difficulties"></select>
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Short Description</div>
 				<div>
-				<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				<textarea name="content" ng-model="np.description.short" placeholder="Put your story here"></textarea>
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Long Description</div>
 				<div>
-				<textarea name="content" ng-model="content" placeholder="Put your story here" required></textarea>
+				<textarea name="content" ng-model="np.description.long" placeholder="Put your story here"></textarea>
 				</div>
 			</div>
-<!-- Best Season -->
-<!-- Impossible in this season -->
-<!-- Facilities -->
+			<div class="field">
+				<div class="label">Best Season</div>
+				<div class="checkbox-list" ng-repeat="season in seasons_best">
+					<div class="checkbox-label">{{season.name}}</div>
+					<input class="" type="checkbox" name="title" ng-model="season.selected"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Impossible in this season</div>
+				<div class="checkbox-list" ng-repeat="season in seasons_worst">
+					<div class="checkbox-label">{{season.name}}</div>
+					<input class="" type="checkbox" name="title" ng-model="season.selected"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Facilities</div>
+				<div>
+				<input class="textbox" type="text" name="title" ng-model="np.facilities" placeholder="eg. 'Treeking Guide'" />
+				</div>
+			</div>
 			<div class="field">
 				<div class="label">Distance travelled from Mumbai to Mumbai (Kms)</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '384'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.distance.land" placeholder="eg. '384'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Height Achieved (if Trekking) (Mts)</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '831'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.distance.height" placeholder="eg. '831'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Distance covered on water (Mts)</div>
 				<div>
-				<input class="textbox" type="number" name="title" ng-model="title" placeholder="eg. '1376'" required />
+				<input class="textbox" type="number" name="title" ng-model="np.distance.water" placeholder="eg. '1376'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Things to carry</div>
 				<div>
-				<textarea name="content" ng-model="content" placeholder="eg. Ek JD ka Khamba, Ek hot blonde with shaved pussy" required></textarea>
+				<textarea name="content" ng-model="np.carry" placeholder="eg. Water bottle"></textarea>
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Instructions</div>
 				<div>
-				<textarea name="content" ng-model="content" placeholder="eg. Bring water bottle with you" required></textarea>
+				<textarea name="content" ng-model="np.instructions" placeholder="eg. Bring water bottle with you"></textarea>
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Possible Pains</div>
 				<div>
-				<input class="textbox" type="text" name="title" ng-model="title" placeholder="eg. 'Trip to Sandhan Valley'" required />
+				<input class="textbox" type="text" name="title" ng-model="np.pains" placeholder="eg. 'Trip to Sandhan Valley'" />
 				</div>
 			</div>
 			<div class="field">
 				<div class="label">Add Ons</div>
 				<div class="checkbox-list" ng-repeat="addon in addons">
 					<div class="checkbox-label">{{addon.name}}</div>
-					<input class="" type="checkbox" name="title" ng-model="addon.tick"/>
-					<input class="" type="number" name="title" ng-disabled="!addon.tick" ng-model="title" placeholder="eg. '400'"/>
+					<input class="" type="checkbox" name="title" ng-model="addon.selected"/>
+					<input class="" type="number" name="title" ng-disabled="!addon.selected" ng-model="addon.price" placeholder="eg. '400'"/>
 				</div>
 			</div>
 			<div>

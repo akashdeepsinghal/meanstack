@@ -58,6 +58,14 @@ app.post('/api/blogs/update',api.updateBlog);
 app.post('/api/blogs/getall',api.getAllBlogs);
 app.post('/api/blogs/display',api.displayBlog);
 
+//routes for plan
+app.post('/api/plans/create',api.addPlan);
+app.post('/api/plans/getbyid',api.getPlanByid);
+app.post('/api/plans/remove',api.removePlan);
+app.post('/api/plans/update',api.updatePlan);
+app.post('/api/plans/getall',api.getAllPlans);
+app.post('/api/plans/display',api.displayPlan);
+
 //routes for users
 app.post('/api/users/add',api.addUser);
 app.post("/api/users/getbyid",api.getUserById);

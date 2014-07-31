@@ -157,36 +157,108 @@ angular.module('tripsApp')
 
 
 .controller('AdminPlanCtrl',['$scope', 'customHttp', 'ngDialog', function ($scope, customHttp, ngDialog){
+	$scope.np ={};
     $scope.addons = [
+        {name:'camping', selected: false},
+        {name:'rappelling', selected: false},
+        {name:'waterfall rappelling', selected: false},
+        {name:'rock climbing', selected: false},
+        {name:'river crossing', selected: false},
+        {name:'beach side camping', selected: false},
+        {name:'night trekking', selected: false},
+        {name:'fishing', selected: false},
+        {name:'kayaking', selected: false},
+        {name:'private music performance', selected: false}
+    ];
+    $scope.difficulties = [
         {
-            name:'camping'
+            name:'Very Easy'
         },
         {
-            name:'rappelling'
+            name:'Easy'
         },
         {
-            name:'waterfall rappelling'
+            name:'Moderate'
         },
         {
-            name:'rock climbing'
+            name:'Difficult'
         },
         {
-            name:'river crossing'
-        },
-        {
-            name:'beach side camping'
-        },
-        {
-            name:'night trekking'
-        },
-        {
-            name:'fishing'
-        },
-        {
-            name:'kayaking'
-        },
-        {
-            name:'private music performance'
+            name:'Expert Level'
         }
     ];
+    $scope.seasons_best = [
+        {id : 'january', name:'January', selected: false},
+        {id : 'february', name:'February', selected: false},
+        {id : 'march', name:'March', selected: false},
+        {id : 'april', name:'April', selected: false},
+        {id : 'may', name:'May', selected: false},
+        {id : 'june', name:'June', selected: false},
+        {id : 'july', name:'July', selected: false},
+        {id : 'august', name:'August', selected: false},
+        {id : 'september', name:'September', selected: false},
+        {id : 'october', name:'October', selected: false},
+        {id : 'november', name:'November', selected: false},
+        {id : 'december', name:'December', selected: false},
+    ];
+    $scope.seasons_worst = [
+        {id : 'january', name:'January', selected: false},
+        {id : 'february', name:'February', selected: false},
+        {id : 'march', name:'March', selected: false},
+        {id : 'april', name:'April', selected: false},
+        {id : 'may', name:'May', selected: false},
+        {id : 'june', name:'June', selected: false},
+        {id : 'july', name:'July', selected: false},
+        {id : 'august', name:'August', selected: false},
+        {id : 'september', name:'September', selected: false},
+        {id : 'october', name:'October', selected: false},
+        {id : 'november', name:'November', selected: false},
+        {id : 'december', name:'December', selected: false},
+    ];
+    $scope.addPlan = function () {
+    	$scope.np.season = {};
+
+    	$scope.np.season.best = [];
+	    $scope.seasons_best.forEach(function (a) {
+	    	if (a.selected) {
+	    		$scope.np.season.best.push(a.name);
+	    	}
+	    });
+	    $scope.np.season.worst = [];
+	    $scope.seasons_worst.forEach(function (a) {
+	    	if (a.selected) {
+	    		$scope.np.season.worst.push(a.name);
+	    	}
+	    });
+
+	    $scope.np.addons = [];
+	    $scope.addons.forEach(function (a) {
+	    	if (a.selected) {
+	    		var b = {
+	    			name : a.name,
+	    			price : a.price
+	    		}
+	    		$scope.np.addons.push(b);
+	    	}
+	    });
+		var np = $scope.np;
+		np = JSON.stringify(np);
+		console.log(np);
+		var impParams = 'plan='+np;
+		customHttp.request(impParams,'/api/plans/create','POST',function (data) {
+			if(data.status){
+				document.getElementById('newplanform').reset();
+				console.log(data);
+				$scope.plans.push(data.data);
+				// loadPlans();
+			}
+			else{
+				$scope.error.push({
+					type : 'fail',
+					message: data.message
+				})
+			}
+		})
+	};
+    
 }])
