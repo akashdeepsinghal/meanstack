@@ -1,8 +1,20 @@
 {
   "name": "meanstack",
   "main": "app.js",
+  "description": "MEAN Stack starter application",
   "version": "1.0.1",
-  "private": true,
+  "author": "https://github.com/akigupta131",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akigupta131/meanstack"
+  },
+  "engines": {
+    "node": ">=0.10.28",
+    "npm": ">=1.4.28"
+  },
+  "scripts": {
+    "start": "grunt"
+  },
   "dependencies": {
     "express": "~4.10.1",
     "express-session": "~1.9.1",
@@ -14,13 +26,11 @@
     "morgan": "~1.0.0",
     "mongoose": "~3.8.8",
     "underscore": "1.6.0",
-
-    // For oAuth and local Login/Signup
     "passport": "^0.2.0",
     "passport-local" : "~0.1.6",
     "passport-facebook" : "~1.0.2", 
     "passport-twitter" : "~1.0.2",  
-    "passport-google-oauth" : "~0.1.5",
+    "passport-google-oauth" : "~0.1.5"
   },
   "devDependencies": {
     "grunt": "latest",
