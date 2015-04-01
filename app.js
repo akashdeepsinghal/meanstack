@@ -13,7 +13,7 @@ var path = require('path');
 var api = require('./api');
 
 // configuration ===========================================
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 1210);
 app.set('view engine', 'ejs');
 app.engine('html',require('ejs').renderFile);
 app.use(express.favicon());

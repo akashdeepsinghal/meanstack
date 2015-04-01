@@ -1,11 +1,11 @@
 {
-	"name": "Tripsphere",
-	"version": "0.0.0",
+	"name": "meanstack",
+	"version": "1.0.1",
 	"dependencies": {
 		"bootstrap": "latest",
 		"angular": "latest",
-		"jquery": "~2.1.1",
+		"jquery": "~2.1.3",
 		"angular-route": "latest",
-		"angular-ui-router": "~0.2.7"
+		"angular-ui-router": "~0.2.13"
 	}
 }
