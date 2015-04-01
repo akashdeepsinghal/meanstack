@@ -7,7 +7,7 @@ This is the basic scaffold for the developers who find it quite annoying to init
 1. Download the repository
 2. Install npm modules: `npm install`
 3. Install bower dependencies `bower install`
-4. Start up the server: `node app`
+4. Start up the server: `node server`
 5. View in browser at http://localhost:1210
 
 ## Features
